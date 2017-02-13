@@ -16,9 +16,15 @@
 		<div data-role="header" data-position="fixed" data-theme="C">
 			
 			<h1>Good Weather</h1>
-			<a href="#" data-icon="bars"></a>
+			<a href="#" data-icon="bars" data-role="button" data-iconpos="notext" data-iconshadow="false">Close</a>
+			<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-lock">lock</button>
+
 		</div>
-		<div role="main" class="ui-content">...</div>
+		<div data-role="main" class="ui-content">
+			<h1 id="current_temp">65&#176;F</h1>
+			<p id="current_summary">Partly Cloudy</p>
+			<p id="location">Current Location</p>
+		</div>
 		<div data-role="footer">...</div>
 </div>
 	
