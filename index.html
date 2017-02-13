@@ -23,7 +23,7 @@
 					"partly-cloudy-night":"I"
 
 					};
-					
+
 	function jsonCallback(data){
 		console.log("jsonCallBack");
 		console.log(data);
@@ -41,7 +41,7 @@
 				console.log(json);
 				$("#current_temp").html(Math.round(json.currently.temperature)+"&#176;");
 				$("#current_summary").html(json.currently.summary);
-				$("#current_temp").attr("data-icon",)
+				$("#current_temp").attr("data-icon",icons[json.currently.icon]);
 			},
 			error: function(e){
 				console.log(e.message);
