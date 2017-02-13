@@ -24,6 +24,16 @@
 
 					};
 
+	var cities = {
+		"chicago":  		{coords: { lat: 41.879, lng: -87.63675 } },
+		"new york":  		{coords: { lat: 40.67, lng: -73.98 } },
+		"los angeles":  	{coords: { lat: 34.1014, lng: -118.34} },
+		"san francisco":  	{coords: { lat: 37.7885, lng: -122.407 } },
+		"miami":  			{coords: { lat: 25.7901, lng: -80.14} },
+		"current location":  ""
+
+	}
+
 	function jsonCallback(data){
 		console.log("jsonCallBack");
 		console.log(data);
@@ -49,8 +59,19 @@
 		});
 	}
 
+	function loadCity(city){
+		$("#location").html(city);
+
+		loadWeather(cities[city.toLowerCase()]);
+
+	}
+
 	$(document).ready(function(){
 		loadWeather();
+
+		$("a.city").bind("click",function(){
+			loadCity($(this).html());
+		});
 	});
 
 </script>
