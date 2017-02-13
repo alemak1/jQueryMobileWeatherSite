@@ -63,8 +63,20 @@
 	function loadCity(city){
 		$("#location").html(city);
 
-		loadWeather(cities[city.toLowerCase()]);
+		if(city.toLowerCase() == "current location"){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(loadWeather,loadDefaultCity);
+			} else {
+				loadDefaultCity();
+			}
+		} else {
+			loadWeather(cities[city.toLowerCase()]);
+		}
 
+	}
+
+	function loadDefaultCity(){
+		loadCity("New York");
 	}
 
 	$(document).ready(function(){
