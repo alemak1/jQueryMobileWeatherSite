@@ -39,8 +39,9 @@
 		console.log(data);
 	}
 
-	function loadWeather(){
-		var forecastURL = "https://api.darksky.net/forecast/ee1cc0493ff35cc8dc97394f1fcb0348/37.8267,-122.4233";
+	function loadWeather(cityCoords){
+		var latlng = cityCoords.coords.lat + "," + cityCoords.coords.lng;
+		var forecastURL = "https://api.darksky.net/forecast/ee1cc0493ff35cc8dc97394f1fcb0348/" + latlng;
 
 		$.ajax({
 			url: forecastURL,
@@ -67,7 +68,7 @@
 	}
 
 	$(document).ready(function(){
-		loadWeather();
+		loadCity("Chicago");
 
 		$("a.city").bind("click",function(){
 			loadCity($(this).html());
